@@ -86,10 +86,20 @@ grid([img1, img2, img3, img4], cols=2, gap=10).save("grid.jpg")
 ### printer.py — 打印
 
 ```python
-from printer import print_photo, print_preview, printer_status
+from printer import print_photo, print_preview, printer_status, print_multiple
 
-print_preview("photo.jpg", "preview.pdf")  # 出 PDF 预览
-print_photo("photo.jpg", copies=2)         # 打印 2 张
+# 查打印机状态
+status = printer_status()
+print(f"打印机：{status['printers']}，队列：{status['jobs']}")
+
+# 出 PDF 预览（不实际打印）
+print_preview("photo.jpg", "preview.pdf")
+
+# 发送到打印机
+print_photo("photo.jpg", copies=2, media="4x6")  # 2 张 4×6
+
+# 批量打印多个文件
+results = print_multiple(["a.jpg", "b.jpg", "c.jpg"], copies=1)
 ```
 
 ## 许可证
