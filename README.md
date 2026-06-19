@@ -64,19 +64,23 @@ cool(img).save("cool.jpg")        # 冷色
 ### watermark.py — 水印
 
 ```python
-from watermark import add_text, add_timestamp
+from watermark import add_text, add_logo, add_timestamp
 
 img = Image.open("photo.jpg")
 add_text(img, "Studio Name", "bottom-right", 36, (255,255,255,180)).save("wm.jpg")
-add_timestamp(img).save("ts.jpg")  # 自动加时间戳
+add_logo(img, "logo.png", scale=0.15).save("logo.jpg")   # 贴 Logo
+add_timestamp(img).save("ts.jpg")                         # 自动加时间戳
 ```
 
 ### collage.py — 拼接
 
 ```python
-from collage import vertical, grid
+from collage import horizontal, vertical, grid
 
-# 纵向拼接
+# 横向一行
+horizontal([img1, img2, img3], gap=10).save("row.jpg")
+
+# 纵向一列
 vertical([img1, img2, img3, img4], gap=8).save("strip.jpg")
 
 # 2×2 网格
