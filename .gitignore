@@ -3,3 +3,16 @@ __pycache__/
 venv/
 .DS_Store
 test_photo.jpg
+# 生成的测试产物不上传
+gray.jpg
+vintage.jpg
+warm.jpg
+cool.jpg
+watermarked.jpg
+timestamped.jpg
+photo_strip.jpg
+photo_preview.pdf
+strip_preview.pdf
+result_*.jpg
+result_*.pdf
+output.jpg
